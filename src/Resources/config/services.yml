@@ -1,0 +1,29 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Praguebest\SyliusFooterPlugin\Controller\:
+    resource: '../../Controller'
+    tags: ['controller.service_arguments']
+
+  praguebest.sylius_footer_plugin.listener.admin.menu_builder:
+    class: Praguebest\SyliusFooterPlugin\Menu\AdminMenuBuilder
+    public: true
+    tags:
+      - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
+
+  praguebest_sylius_footer_plugin.form.type.footer:
+    class: Praguebest\SyliusFooterPlugin\Form\Type\FooterType
+    arguments:
+      - "%praguebest_sylius_footer_plugin.model.footer.class%"
+    tags:
+      - { name: form.type }
+
+  praguebest_sylius_footer_plugin.form.type.translation.footer:
+    class: Praguebest\SyliusFooterPlugin\Form\Type\Translation\FooterTranslationType
+    arguments:
+      - "%praguebest_sylius_footer_plugin.model.footer_translation.class%"
+    tags:
+      - { name: form.type }

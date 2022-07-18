@@ -1,0 +1,12 @@
+praguebest_sylius_footer_plugin:
+  ui:
+    enabled: Povoleno
+    has_copyright: Zobrazit copyright
+    has_newsletter: Zobrazit newsletter
+    taxons: Taxony
+    contents: Obsah
+    name: Interní název
+    copyright: Copyright
+    footers: Patička
+    footer_list: Seznam patiček
+    footer_items: Položky patičky

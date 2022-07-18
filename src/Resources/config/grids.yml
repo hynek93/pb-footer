@@ -1,0 +1,2 @@
+imports:
+  - { resource: "@PraguebestSyliusFooterPlugin/Resources/config/grids/footer.yml" }

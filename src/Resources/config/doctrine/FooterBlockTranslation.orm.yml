@@ -1,0 +1,19 @@
+Praguebest\SyliusFooterPlugin\Entity\FooterBlockTranslation:
+  type: entity
+  table: sylius_footer_block_translation
+  id:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+  fields:
+    locale:
+      column: locale
+      type: string
+      length: 10
+      nullable: true
+    name:
+      column: name
+      type: string
+      nullable: true

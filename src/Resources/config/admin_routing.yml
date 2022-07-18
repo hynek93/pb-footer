@@ -1,1 +1,2 @@
-# Define your own admin routes here
+praguebest_sylius_footer_plugin_admin_footer:
+  resource: "@PraguebestSyliusFooterPlugin/Resources/config/routing/admin/footer.yml"

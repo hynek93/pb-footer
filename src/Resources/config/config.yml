@@ -1,0 +1,9 @@
+imports:
+  - { resource: "@PraguebestSyliusFooterPlugin/Resources/config/resources.yml" }
+  - { resource: "@PraguebestSyliusFooterPlugin/Resources/config/grids.yml" }
+  - { resource: "@PraguebestSyliusFooterPlugin/Resources/config/services.yml" }
+
+parameters:
+  praguebest_validation_group: [praguebest_footer]
+  praguebest_sylius_footer_plugin.form.type.footer.validation_groups: "%praguebest_validation_group%"
+  praguebest_sylius_footer_plugin.form.type.translation.footer.validation_groups: "%praguebest_validation_group%"

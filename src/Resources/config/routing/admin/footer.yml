@@ -1,0 +1,18 @@
+praguebest_sylius_footer_plugin_footer:
+  resource: |
+    alias: praguebest_sylius_footer_plugin.footer
+    path: footer
+    section: admin
+    templates: '@PraguebestSyliusFooterPlugin/Footer'
+    except: ['show']
+    redirect: update
+    grid: praguebest_sylius_footer_plugin_footer_grid
+    permission: true
+    vars:
+        all:
+            subheader: praguebest_sylius_footer_plugin.ui.footer_list
+            templates:
+              form: "@PraguebestSyliusFooterPlugin/Footer/Form/_form.html.twig"
+        index:
+            icon: 'file image outline'
+  type: sylius.resource

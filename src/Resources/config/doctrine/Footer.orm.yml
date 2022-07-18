@@ -1,0 +1,33 @@
+Praguebest\SyliusFooterPlugin\Entity\Footer:
+  type: entity
+  table: sylius_footer
+  id:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+  fields:
+    hasNewsletter:
+      column: has_newsletter
+      type: boolean
+    hasCopyright:
+      column: has_copyright
+      type: boolean
+    enabled:
+      column: enabled
+      type: boolean
+    createdAt:
+      column: created_at
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          on: create
+    updatedAt:
+      column: updated_at
+      type: datetime
+      nullable: true
+      gedmo:
+        timestampable:
+          on: update

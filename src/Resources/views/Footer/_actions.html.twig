@@ -1,0 +1,14 @@
+<div class="middle aligned column">
+    <div class="ui right floated buttons">
+        {% if definition.actionGroups.main is defined %}
+            {% for action in definition.getEnabledActions('main') %}
+                {{ sylius_grid_render_action(resources, action, null) }}
+            {% endfor %}
+        {% endif %}
+
+        <a class="ui labeled icon button  default " href="#">
+            <i class="icon zoom"></i>
+            {{ 'praguebest_sylius_footer_plugin.ui.footer_items'|trans }}
+        </a>
+    </div>
+</div>
