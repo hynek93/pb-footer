@@ -19,9 +19,8 @@ class FooterRepository extends EntityRepository implements FooterRepositoryInter
             ->setParameter('locale', $locale);
     }
 
-    public function findOneByTaxon(?int $taxon = null, ?string $locale = null): ?FooterInterface
+    public function findOneByTaxon(?string $taxon = null, ?string $locale = null): ?FooterInterface
     {
-        $taxon = 2;
         $footerQuery = $this->createQueryBuilder('o')
             ->addSelect('translation')
             ->addSelect('footerBlocks')
@@ -36,13 +35,13 @@ class FooterRepository extends EntityRepository implements FooterRepositoryInter
         if ($taxon) {
             $footerQuery
                 ->leftJoin('o.taxons', 'taxon')
-                ->where('taxon.id = :taxon')
-                ->setParameter('taxon', $taxon);
+                ->where('taxon.id = :taxon OR o.isDefault = 1')
+                ->setParameter('taxon', $taxon)
+                ->addOrderBy('taxon.id', 'DESC');
         }
 
         $footer = $footerQuery
-            ->orderBy('-taxon.id', 'DESC')
-            ->orderBy('o.isDefault', 'DESC')
+            ->addOrderBy('o.isDefault', 'DESC')
             ->getQuery()
             ->getResult();
 
