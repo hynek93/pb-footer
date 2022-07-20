@@ -1,0 +1,2 @@
+{% set taxon = get_taxon_by_slug(app.request.attributes.get('slug'), sylius.localeCode) %}
+{{ render(path('praguebest_sylius_footer_plugin_shop_footer_show', {'taxon' : taxon, 'template' : '@PraguebestSyliusFooterPlugin/Shop/footer.html.twig'})) }}

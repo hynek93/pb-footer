@@ -12,6 +12,14 @@ services:
     resource: '../../Controller'
     tags: ['controller.service_arguments']
 
+  praguebest_sylius_footer_plugin.twig_extension:
+    class: Praguebest\SyliusFooterPlugin\Extensions\FooterExtension
+    public: true
+    arguments:
+      - "@sylius.repository.taxon"
+    tags:
+      - { name: twig.extension }
+
   praguebest.sylius_footer_plugin.listener.admin.menu_builder:
     class: Praguebest\SyliusFooterPlugin\Menu\AdminMenuBuilder
     public: true

@@ -16,3 +16,17 @@ praguebest_sylius_footer_plugin_footer:
         index:
             icon: 'block layout'
   type: sylius.resource
+
+praguebest_sylius_footer_plugin_shop_footer_show:
+  path: /footer/show
+  methods: [GET]
+  requirements: null
+  defaults:
+    _controller: praguebest_sylius_footer_plugin.controller.footer:showAction
+    _sylius:
+      template: $template
+      repository:
+        method: findOneByTaxon
+        arguments:
+          - $taxon
+          - "expr:service('sylius.context.locale').getLocaleCode()"

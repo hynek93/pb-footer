@@ -10,11 +10,13 @@ praguebest_sylius_footer_plugin:
     name: Interní název
     copyright: Copyright
     footers: Patička
+    new_footer: Nová patička
     footer_list: Seznam patiček
     footer_items: Položky patičky
     edit_footer : Editace patičky
     edit_footer_block : Editace položky patičky
     footer_blocks_list : Položky patičky
     footer_blocks : Položky patičky
+    new_footer_block : Nová položka patičky
     content : Obsah
     back_to_footer : Zpět na výpis patiček

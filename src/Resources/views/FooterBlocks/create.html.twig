@@ -18,10 +18,5 @@
 
     {% include '@SyliusAdmin/Crud/Create/_content.html.twig' %}
 
-    <form action="{{ path('praguebest_sylius_footer_plugin_admin_upload_editor_image') }}">
-        <input type="file" name="test" />
-        <input type="submit" value="send" />
-    </form>
-
     {{ sonata_block_render_event(event_prefix ~ '.after_content', {'resource': resource}) }}
 {% endblock %}

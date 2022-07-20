@@ -1,0 +1,48 @@
+{% if footer %}
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+
+    <footer id="footer" class="ui inverted vertical footer segment">
+        <div class="ui container">
+            <div class="ui inverted divided equal height stackable grid">
+                <div class="ui center aligned inverted basic segment">
+                    {% if footer.hasNewsletter %}
+                        <strong>TADY BUDE NEWSLETTER</strong>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="ui inverted divided equal height stackable grid">
+                {% for block in footer.footerBlocks %}
+                    <div class="four wide column">
+                        {{ block.content|raw }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="ui hidden divider"></div>
+
+
+            <div class="ui inverted divided equal height stackable grid">
+                <div class="ui center aligned inverted basic segment">
+                    {% if footer.hasCopyright %}
+                        <p>{{footer.copyright}}</p>
+                    {% endif %}
+
+                    {% if footer.hasSocials %}
+                        <a target="_blank" href="//facebook.com/SyliusEcommerce/"><i class="big grey facebook icon"></i></a>
+                        <a target="_blank" href="//instagram.com/sylius.team/"><i class="big grey instagram icon"></i></a>
+                        <a target="_blank" href="//twitter.com/sylius"><i class="big grey twitter card icon"></i></a>
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+{% endif %}
