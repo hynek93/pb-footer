@@ -13,6 +13,14 @@ interface FooterInterface extends
     ToggleableInterface,
     TimestampableInterface
 {
+    public function getIsDefault(): bool;
+
+    public function setIsDefault(bool $isDefault): void;
+
+    public function getHasSocials(): bool;
+
+    public function setHasSocials(bool $hasSocials): void;
+
     public function getHasCopyright(): bool;
 
     public function setHasCopyright(bool $hasCopyright): void;

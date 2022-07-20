@@ -1,6 +1,8 @@
 praguebest_sylius_footer_plugin:
   ui:
     enabled: Povoleno
+    is_default: Výchozí patička
+    has_socials: Zobrazit sociální sítě
     has_copyright: Zobrazit copyright
     has_newsletter: Zobrazit newsletter
     taxons: Taxony
@@ -10,3 +12,9 @@ praguebest_sylius_footer_plugin:
     footers: Patička
     footer_list: Seznam patiček
     footer_items: Položky patičky
+    edit_footer : Editace patičky
+    edit_footer_block : Editace položky patičky
+    footer_blocks_list : Položky patičky
+    footer_blocks : Položky patičky
+    content : Obsah
+    back_to_footer : Zpět na výpis patiček

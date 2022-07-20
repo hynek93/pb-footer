@@ -22,6 +22,34 @@ sylius_grid:
           sortable: ~
           options:
             template: "@SyliusUi/Grid/Field/enabled.html.twig"
+        is_default:
+          type: twig
+          label: praguebest_sylius_footer_plugin.ui.is_default
+          path: is_default
+          sortable: ~
+          options:
+            template: "@PraguebestSyliusFooterPlugin/Form/checkbox.html.twig"
+        has_socials:
+          type: twig
+          label: praguebest_sylius_footer_plugin.ui.has_socials
+          path: has_socials
+          sortable: ~
+          options:
+            template: "@PraguebestSyliusFooterPlugin/Form/checkbox.html.twig"
+        has_newsletter:
+          type: twig
+          label: praguebest_sylius_footer_plugin.ui.has_newsletter
+          path: has_newsletter
+          sortable: ~
+          options:
+            template: "@PraguebestSyliusFooterPlugin/Form/checkbox.html.twig"
+        has_copyright:
+          type: twig
+          label: praguebest_sylius_footer_plugin.ui.has_copyright
+          path: has_copyright
+          sortable: ~
+          options:
+            template: "@PraguebestSyliusFooterPlugin/Form/checkbox.html.twig"
       filters:
         search:
           type: string

@@ -8,6 +8,12 @@ Praguebest\SyliusFooterPlugin\Entity\Footer:
       generator:
         strategy: AUTO
   fields:
+    isDefault:
+      column: is_default
+      type: boolean
+    hasSocials:
+      column: has_socials
+      type: boolean
     hasNewsletter:
       column: has_newsletter
       type: boolean
@@ -31,3 +37,29 @@ Praguebest\SyliusFooterPlugin\Entity\Footer:
       gedmo:
         timestampable:
           on: update
+
+  manyToMany:
+    taxons:
+      targetEntity: Sylius\Component\Core\Model\TaxonInterface
+      joinTable:
+        name: sylius_footer_taxon
+        joinColumns:
+          footer_id:
+            referencedColumnName: id
+            onDelete: CASCADE
+        inverseJoinColumns:
+          taxon_id:
+            referencedColumnName: id
+            onDelete: CASCADE
+    footerBlocks:
+      targetEntity: Praguebest\SyliusFooterPlugin\Entity\FooterBlockInterface
+      joinTable:
+        name: sylius_footer_footer_block
+        joinColumns:
+          footer_id:
+            referencedColumnName: id
+            onDelete: CASCADE
+        inverseJoinColumns:
+          footer_block_id:
+            referencedColumnName: id
+            onDelete: CASCADE

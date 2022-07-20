@@ -1,2 +1,4 @@
 praguebest_sylius_footer_plugin_admin_footer:
   resource: "@PraguebestSyliusFooterPlugin/Resources/config/routing/admin/footer.yml"
+praguebest_sylius_footer_plugin_admin_footer_blocks:
+  resource: "@PraguebestSyliusFooterPlugin/Resources/config/routing/admin/footer_blocks.yml"

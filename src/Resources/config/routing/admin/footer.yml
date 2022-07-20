@@ -14,5 +14,5 @@ praguebest_sylius_footer_plugin_footer:
             templates:
               form: "@PraguebestSyliusFooterPlugin/Footer/Form/_form.html.twig"
         index:
-            icon: 'file image outline'
+            icon: 'block layout'
   type: sylius.resource

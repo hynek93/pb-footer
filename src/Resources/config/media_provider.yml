@@ -1,0 +1,30 @@
+services:
+  praguebest_sylius_footer_plugin.media_provider.image:
+    class: Praguebest\SyliusFooterPlugin\MediaProvider\GenericProvider
+    arguments:
+      - "@praguebest_sylius_footer_plugin.media_uploader"
+      - "@twig"
+      - "@@PraguebestSyliusFooterPlugin/Shop/Media/Show/image.html.twig"
+      - "media/image"
+    tags:
+      - { name: praguebest_sylius_footer_plugin.media_provider, type: image, label: praguebest_sylius_footer_plugin.ui.image_provider }
+
+  praguebest_sylius_footer_plugin.media_provider.video:
+    class: Praguebest\SyliusFooterPlugin\MediaProvider\GenericProvider
+    arguments:
+      - "@praguebest_sylius_footer_plugin.media_uploader"
+      - "@twig"
+      - "@@PraguebestSyliusFooterPlugin/Shop/Media/Show/video.html.twig"
+      - "media/video"
+    tags:
+      - { name: praguebest_sylius_footer_plugin.media_provider, type: video, label: praguebest_sylius_footer_plugin.ui.video_provider }
+
+  praguebest_sylius_footer_plugin.media_provider.file:
+    class: Praguebest\SyliusFooterPlugin\MediaProvider\GenericProvider
+    arguments:
+      - "@praguebest_sylius_footer_plugin.media_uploader"
+      - "@twig"
+      - "@@PraguebestSyliusFooterPlugin/Shop/Media/Show/file.html.twig"
+      - "media/file"
+    tags:
+      - { name: praguebest_sylius_footer_plugin.media_provider, type: file, label: praguebest_sylius_footer_plugin.ui.file_provider }

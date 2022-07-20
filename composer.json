@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.4 || ^8.0",
+        "friendsofsymfony/ckeditor-bundle": "^2.4",
         "sylius/sylius": "^1.10",
         "symfony/maker-bundle": "*"
     },

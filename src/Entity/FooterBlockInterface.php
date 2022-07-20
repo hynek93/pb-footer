@@ -16,4 +16,8 @@ interface FooterBlockInterface extends
     public function getName(): ?string;
 
     public function setName(?string $name): void;
+
+    public function getContent(): ?string;
+
+    public function setContent(?string $content): void;
 }

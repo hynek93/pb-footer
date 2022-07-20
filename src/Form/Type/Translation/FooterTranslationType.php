@@ -12,11 +12,11 @@ class FooterTranslationType extends AbstractResourceType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'praguebest_footer_plugin.ui.name',
+                'label' => 'praguebest_sylius_footer_plugin.ui.name',
                 'required' => false,
             ])
             ->add('copyright', TextType::class, [
-                'label' => 'praguebest_footer_plugin.ui.copyright',
+                'label' => 'praguebest_sylius_footer_plugin.ui.copyright',
                 'required' => false,
             ])
         ;

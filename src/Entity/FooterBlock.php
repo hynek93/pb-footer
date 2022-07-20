@@ -37,6 +37,19 @@ class FooterBlock implements FooterBlockInterface
         $translation->setName($name);
     }
 
+    public function getContent(): ?string
+    {
+        $translation = $this->getFooterBlockTranslation();
+
+        return $translation->getContent();
+    }
+
+    public function setContent(?string $content): void
+    {
+        $translation = $this->getFooterBlockTranslation();
+        $translation->setContent($content);
+    }
+
     protected function getFooterBlockTranslation(): FooterBlockTranslationInterface
     {
         /** @var FooterBlockTranslationInterface $translation */

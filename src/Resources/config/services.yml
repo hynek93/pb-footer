@@ -1,6 +1,10 @@
+parameters:
+  praguebest_sylius_footer_plugin.media_provider.interface: Praguebest\SyliusFooterPlugin\MediaProvider\ProviderInterface
+  praguebest_sylius_footer_plugin.uploader.filesystem: praguebest_sylius_footer_plugin_media
+
 services:
   _defaults:
-    autowire: true
+#    autowire: true
     autoconfigure: true
     public: false
 
@@ -14,16 +18,59 @@ services:
     tags:
       - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
 
-  praguebest_sylius_footer_plugin.form.type.footer:
-    class: Praguebest\SyliusFooterPlugin\Form\Type\FooterType
+  praguebest_sylius_footer_plugin.event_listener.media_upload:
+    class: Praguebest\SyliusFooterPlugin\EventListener\MediaUploadListener
     arguments:
-      - "%praguebest_sylius_footer_plugin.model.footer.class%"
+      - "@praguebest_sylius_footer_plugin.resolver.media_provider"
     tags:
-      - { name: form.type }
+      - { name: kernel.event_listener, event: praguebest_sylius_footer_plugin.media.pre_create, method: uploadMedia }
+      - { name: kernel.event_listener, event: praguebest_sylius_footer_plugin.media.pre_update, method: uploadMedia }
 
-  praguebest_sylius_footer_plugin.form.type.translation.footer:
-    class: Praguebest\SyliusFooterPlugin\Form\Type\Translation\FooterTranslationType
+  praguebest_sylius_footer_plugin.resolver.media_resource:
+    class: Praguebest\SyliusFooterPlugin\Resolver\MediaResourceResolver
+    public: true
     arguments:
-      - "%praguebest_sylius_footer_plugin.model.footer_translation.class%"
-    tags:
-      - { name: form.type }
+      - "@praguebest_sylius_footer_plugin.repository.media"
+      - "@sylius.context.locale"
+      - "@sylius.context.channel"
+      - "@logger"
+
+  praguebest_sylius_footer_plugin.resolver.media_provider:
+    class: Praguebest\SyliusFooterPlugin\Resolver\MediaProviderResolver
+    public: true
+    arguments:
+      - "@praguebest_sylius_footer_plugin.registry.media_provider"
+
+  praguebest_sylius_footer_plugin.registry.media_provider:
+    class: Sylius\Component\Registry\ServiceRegistry
+    arguments:
+      - "%praguebest_sylius_footer_plugin.media_provider.interface%"
+      - "Media provider"
+
+  praguebest_sylius_footer_plugin.media_uploader:
+    class: Praguebest\SyliusFooterPlugin\Uploader\MediaUploader
+    arguments:
+      - "@praguebest_sylius_footer_plugin.media.filesystem"
+
+  praguebest_sylius_footer_plugin.media.filesystem:
+    class: Gaufrette\Filesystem
+    factory: ['@knp_gaufrette.filesystem_map', get]
+    arguments:
+      - "%praguebest_sylius_footer_plugin.uploader.filesystem%"
+
+knp_gaufrette:
+  adapters:
+    praguebest_sylius_footer_plugin_media:
+      local:
+        directory: "%sylius_core.public_dir%"
+        create: true
+  filesystems:
+    praguebest_sylius_footer_plugin_media:
+      adapter: "%praguebest_sylius_footer_plugin.uploader.filesystem%"
+
+liip_imagine:
+  loaders:
+    default:
+      filesystem:
+        data_root:
+          - "%kernel.project_dir%/public"

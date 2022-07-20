@@ -1,0 +1,13 @@
+Praguebest\SyliusFooterPlugin\Entity\FooterBlock:
+  exclusion_policy: ALL
+  xml_root_name: footer_block
+  properties:
+    id:
+      expose: true
+      type: integer
+      xml_attribute: true
+      groups: [Autocomplete]
+  virtual_properties:
+    getName:
+      serialized_name: name
+      groups: [Autocomplete]

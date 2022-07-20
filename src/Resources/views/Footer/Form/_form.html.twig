@@ -1,12 +1,19 @@
 {% from '@SyliusAdmin/Macro/translationForm.html.twig' import translationForm %}
+{% form_theme form '@PraguebestSyliusFooterPlugin/Footer/Form/theme.html.twig' %}
+
+{{ form_errors(form) }}
 
 <div class="ui two column stackable grid" data-bb-target="cms-handle-preview">
     <div class="column">
         <div class="ui segment">
             {{ form_errors(form) }}
             {{ form_row(form.enabled) }}
+            {{ form_row(form.is_default) }}
+            {{ form_row(form.has_socials) }}
             {{ form_row(form.has_newsletter) }}
             {{ form_row(form.has_copyright) }}
+            {{ form_row(form.taxons) }}
+            {{ form_row(form.footer_blocks) }}
 
         </div>
     </div>

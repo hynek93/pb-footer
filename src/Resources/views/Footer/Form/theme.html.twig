@@ -1,0 +1,9 @@
+{% extends '@SyliusUi/Form/theme.html.twig' %}
+
+{% block praguebest_footer_block_autocomplete_choice_row %}
+    {{ form_row(form, {'remote_url': path('praguebest_sylius_footer_plugin_admin_ajax_footer_block_by_name_phrase'), 'load_edit_url': path('praguebest_sylius_footer_plugin_admin_ajax_footer_block_by_id')}) }}
+{% endblock %}
+
+{% block sylius_taxon_autocomplete_choice_row %}
+    {{ form_row(form, {'remote_url': path('sylius_admin_ajax_taxon_by_name_phrase'), 'load_edit_url': path('sylius_admin_ajax_taxon_by_code')}) }}
+{% endblock %}

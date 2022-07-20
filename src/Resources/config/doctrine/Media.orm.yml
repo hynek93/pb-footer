@@ -1,0 +1,40 @@
+Praguebest\SyliusFooterPlugin\Entity\Media:
+    type: entity
+    table: sylius_footer_media
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        code:
+            column: code
+            type: string
+            length: 250
+            unique: true
+        type:
+            column: type
+            type: string
+            length: 250
+        path:
+            column: path
+            type: string
+            length: 250
+            unique: true
+        mimeType:
+            column: mime_type
+            type: string
+            length: 250
+            nullable: true
+        enabled:
+            column: enabled
+            type: boolean
+        width:
+            column: width
+            type: integer
+            nullable: true
+        height:
+            column: height
+            type: integer
+            nullable: true

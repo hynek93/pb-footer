@@ -1,2 +1,3 @@
 imports:
   - { resource: "@PraguebestSyliusFooterPlugin/Resources/config/grids/footer.yml" }
+  - { resource: "@PraguebestSyliusFooterPlugin/Resources/config/grids/footer_blocks.yml" }

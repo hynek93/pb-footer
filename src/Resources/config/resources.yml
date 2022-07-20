@@ -1,2 +1,4 @@
 imports:
   - { resource: resources/footer.yml }
+  - { resource: resources/footer_block.yml }
+  - { resource: resources/media.yml }

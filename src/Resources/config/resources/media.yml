@@ -1,0 +1,14 @@
+sylius_resource:
+  resources:
+    praguebest_sylius_footer_plugin.media:
+      driver: doctrine/orm
+      classes:
+        model: Praguebest\SyliusFooterPlugin\Entity\Media
+        interface: Praguebest\SyliusFooterPlugin\Entity\MediaInterface
+        form: Praguebest\SyliusFooterPlugin\Form\Type\MediaType
+        repository: Praguebest\SyliusFooterPlugin\Repository\MediaRepository
+        controller: Praguebest\SyliusFooterPlugin\Controller\Admin\MediaController
+      translation:
+        classes:
+          model: Praguebest\SyliusFooterPlugin\Entity\MediaTranslation
+          interface: Praguebest\SyliusFooterPlugin\Entity\MediaTranslationInterface

@@ -1,0 +1,35 @@
+services:
+  praguebest_sylius_footer_plugin.form.type.footer:
+    class: Praguebest\SyliusFooterPlugin\Form\Type\FooterType
+    arguments:
+      - "%praguebest_sylius_footer_plugin.model.footer.class%"
+    tags:
+      - { name: form.type }
+
+  praguebest_sylius_footer_plugin.form.type.translation.footer:
+    class: Praguebest\SyliusFooterPlugin\Form\Type\Translation\FooterTranslationType
+    arguments:
+      - "%praguebest_sylius_footer_plugin.model.footer_translation.class%"
+    tags:
+      - { name: form.type }
+
+  praguebest_sylius_footer_plugin.form.type.footer_block:
+    class: Praguebest\SyliusFooterPlugin\Form\Type\FooterBlockType
+    arguments:
+      - "%praguebest_sylius_footer_plugin.model.footer_block.class%"
+    tags:
+      - { name: form.type }
+
+  praguebest_sylius_footer_plugin.form.type.translation.footer_block:
+    class: Praguebest\SyliusFooterPlugin\Form\Type\Translation\FooterBlockTranslationType
+    arguments:
+      - "%praguebest_sylius_footer_plugin.model.footer_block_translation.class%"
+    tags:
+      - { name: form.type }
+
+  praguebest_sylius_footer_plugin.form.type.wysiwyg:
+    class: Praguebest\SyliusFooterPlugin\Form\Type\WysiwygType
+    arguments:
+      - "@router.default"
+    tags:
+      - { name: form.type }

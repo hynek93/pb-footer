@@ -1,0 +1,44 @@
+sylius_grid:
+  grids:
+    praguebest_sylius_footer_plugin_footer_blocks_grid:
+      driver:
+        name: doctrine/orm
+        options:
+          class: "%praguebest_sylius_footer_plugin.model.footer_block.class%"
+          repository:
+            method: createListQueryBuilder
+            arguments: ["%locale%"]
+      limits: [10, 25, 50]
+      fields:
+        name:
+          type: string
+          label: praguebest_sylius_footer_plugin.ui.name
+          sortable: translation.name
+          path: translation.name
+        enabled:
+          type: twig
+          label: sylius.ui.enabled
+          path: enabled
+          sortable: ~
+          options:
+            template: "@SyliusUi/Grid/Field/enabled.html.twig"
+      filters:
+        search:
+          type: string
+          label: sylius.ui.search
+          options:
+            fields: [name]
+        enabled:
+          type: boolean
+      actions:
+        main:
+          create:
+            type: create
+        item:
+          update:
+            type: update
+          delete:
+            type: delete
+        bulk:
+          delete:
+            type: delete

@@ -9,7 +9,6 @@ use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Sylius\Bundle\TaxonomyBundle\Form\Type\TaxonAutocompleteChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints\Valid;
 
 class FooterType extends AbstractResourceType
 {
@@ -23,18 +22,33 @@ class FooterType extends AbstractResourceType
                 'entry_type' => FooterTranslationType::class,
             ])
             ->add('enabled', CheckboxType::class, [
-                'label' => 'praguebest_footer_plugin.ui.enabled',
+                'label' => 'praguebest_sylius_footer_plugin.ui.enabled',
+                'required' => false,
+            ])
+            ->add('is_default', CheckboxType::class, [
+                'label' => 'praguebest_sylius_footer_plugin.ui.is_default',
+                'required' => false,
+            ])
+            ->add('has_socials', CheckboxType::class, [
+                'label' => 'praguebest_sylius_footer_plugin.ui.has_socials',
+                'required' => false,
             ])
             ->add('has_newsletter', CheckboxType::class, [
-                'label' => 'praguebest_footer_plugin.ui.has_newsletter',
+                'label' => 'praguebest_sylius_footer_plugin.ui.has_newsletter',
+                'required' => false,
             ])
             ->add('has_copyright', CheckboxType::class, [
-                'label' => 'praguebest_footer_plugin.ui.has_copyright',
+                'label' => 'praguebest_sylius_footer_plugin.ui.has_copyright',
+                'required' => false,
             ])
-//            ->add('taxons', TaxonAutocompleteChoiceType::class, [
-//                'label' => 'praguebest_footer_plugin.ui.taxons',
-//                'multiple' => true,
-//            ])
+            ->add('taxons', TaxonAutocompleteChoiceType::class, [
+                'label' => 'praguebest_sylius_footer_plugin.ui.taxons',
+                'multiple' => true,
+            ])
+            ->add('footer_blocks', FooterBlockAutocompleteChoiceType::class, [
+                'label' => 'praguebest_sylius_footer_plugin.ui.footer_blocks',
+                'multiple' => true,
+            ])
         ;
     }
 }

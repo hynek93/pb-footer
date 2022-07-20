@@ -1,0 +1,8 @@
+services:
+  praguebest_sylius_footer_plugin.controller.admin.action.upload_editor_image:
+    class: Praguebest\SyliusFooterPlugin\Controller\Admin\Action\UploadEditorImageAction
+    public: true
+    arguments:
+      - "@praguebest_sylius_footer_plugin.resolver.media_provider"
+      - "@praguebest_sylius_footer_plugin.repository.media"
+      - "@praguebest_sylius_footer_plugin.factory.media"

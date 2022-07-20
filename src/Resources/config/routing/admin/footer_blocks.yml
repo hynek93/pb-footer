@@ -1,0 +1,46 @@
+praguebest_sylius_footer_plugin_footer_blocks:
+  resource: |
+    alias: praguebest_sylius_footer_plugin.footer_block
+    path: footer-blocks
+    section: admin
+    templates: '@PraguebestSyliusFooterPlugin/FooterBlocks'
+    except: ['show']
+    redirect: update
+    grid: praguebest_sylius_footer_plugin_footer_blocks_grid
+    permission: true
+    vars:
+        all:
+            subheader: praguebest_sylius_footer_plugin.ui.footer_blocks_list
+            templates:
+              form: "@PraguebestSyliusFooterPlugin/FooterBlocks/Form/_form.html.twig"
+        index:
+            icon: 'block layout'
+  type: sylius.resource
+
+praguebest_sylius_footer_plugin_admin_ajax_footer_block_by_name_phrase:
+  path: /ajax/footer-blocks/search
+  methods: [GET]
+  defaults:
+    _format: json
+    _controller: praguebest_sylius_footer_plugin.controller.footer_block:indexAction
+    _sylius:
+      serialization_groups: [Autocomplete]
+      permission: true
+      repository:
+        method: findByNamePart
+        arguments:
+          phrase: $phrase
+          locale: null
+
+praguebest_sylius_footer_plugin_admin_ajax_footer_block_by_id:
+  path: /ajax/footer-blocks/name
+  methods: [GET]
+  defaults:
+    _format: json
+    _controller: praguebest_sylius_footer_plugin.controller.footer_block:indexAction
+    _sylius:
+      serialization_groups: [Autocomplete]
+      permission: true
+      repository:
+        method: findBy
+        arguments: [id: $id]

@@ -1,0 +1,12 @@
+{% from '@SyliusAdmin/Macro/translationForm.html.twig' import translationForm %}
+
+<div class="ui column stackable grid" data-bb-target="cms-handle-preview">
+    <div class="column">
+        <div class="ui segment">
+            {{ form_errors(form) }}
+            {{ form_row(form.enabled) }}
+
+            {{ translationForm(form.translations) }}
+        </div>
+    </div>
+</div>

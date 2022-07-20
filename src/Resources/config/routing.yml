@@ -1,2 +1,10 @@
 praguebest_sylius_footer_plugin_footer:
   resource: "@PraguebestSyliusFooterPlugin/Resources/config/routing/admin/footer.yml"
+praguebest_sylius_footer_plugin_footer_blocks:
+  resource: "@PraguebestSyliusFooterPlugin/Resources/config/routing/admin/footer_blocks.yml"
+
+praguebest_sylius_footer_plugin_admin_upload_editor_image:
+  path: /editor/upload-image
+  methods: [GET, POST]
+  defaults:
+    _controller: praguebest_sylius_footer_plugin.controller.admin.action.upload_editor_image

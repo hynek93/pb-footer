@@ -1,0 +1,15 @@
+sylius_resource:
+  resources:
+    praguebest_sylius_footer_plugin.footer_block:
+      driver: doctrine/orm
+      classes:
+        model: Praguebest\SyliusFooterPlugin\Entity\FooterBlock
+        interface: Praguebest\SyliusFooterPlugin\Entity\FooterBlockInterface
+        form: Praguebest\SyliusFooterPlugin\Form\Type\FooterBlockType
+        repository: Praguebest\SyliusFooterPlugin\Repository\FooterBlockRepository
+        controller: Praguebest\SyliusFooterPlugin\Controller\Admin\FooterBlockController
+      translation:
+        classes:
+          model: Praguebest\SyliusFooterPlugin\Entity\FooterBlockTranslation
+          interface: Praguebest\SyliusFooterPlugin\Repository\FooterBlockTranslationInterface
+          form: Praguebest\SyliusFooterPlugin\Form\Type\Translation\FooterBlockTranslationType
